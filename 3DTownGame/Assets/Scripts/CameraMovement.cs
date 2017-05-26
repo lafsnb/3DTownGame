@@ -9,11 +9,11 @@ public class CameraMovement : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		Vector3 mouseOffset = new Vector3(-Input.GetAxis("Mouse Y"), Input.GetAxis("Mouse X"), 0f);
+		Vector3 mouseOffset = new Vector3(-Input.GetAxis("Mouse Y") * cameraMovementSpeed, Input.GetAxis("Mouse X") * cameraMovementSpeed, 0f);
 		GetComponent<Camera>().transform.Rotate(mouseOffset, Space.Self);
 		//auto-up the lazy way:
 		GetComponent<Camera>().transform.LookAt(
-			GetComponent<Camera>().transform.position + GetComponent<Camera>().transform.forward * cameraMovementSpeed, 
+			GetComponent<Camera>().transform.position + GetComponent<Camera>().transform.forward, 
 			Vector3.up);
 
 
